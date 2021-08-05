@@ -17,6 +17,9 @@ pluginManagement {
     }
 }
 
+@Suppress("UnstableApiUsage")
+includeBuild("buildSrc/snapshots-publishing")
+
 rootProject.name = "mirai"
 
 include(":mirai-core-utils")
