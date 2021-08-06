@@ -18,8 +18,8 @@ object Versions {
     const val console = project
     const val consoleTerminal = project
 
-    const val kotlinCompiler = "1.5.10"
-    const val kotlinStdlib = "1.5.10"
+    const val kotlinCompiler = "1.5.30-RC"
+    const val kotlinStdlib = "1.5.30-RC"
     const val dokka = "1.4.32"
 
     const val coroutines = "1.5.0"
@@ -32,7 +32,7 @@ object Versions {
     const val io = "0.1.16"
     const val coroutinesIo = "0.1.16"
 
-    const val blockingBridge = "1.10.3"
+    const val blockingBridge = "1.10.6-1530.2"
 
     const val androidGradlePlugin = "4.1.1"
     const val android = "4.1.1.4"
@@ -51,7 +51,7 @@ object Versions {
 
     const val yamlkt = "0.10.0"
     const val intellijGradlePlugin = "1.1"
-    const val kotlinIntellijPlugin = "211-1.5.20-release-284-IJ7442.40" // keep to newest as kotlinCompiler
+    const val kotlinIntellijPlugin = "211-1.5.30-RC-release-328-IJ7442.40@eap" // keep to newest as kotlinCompiler
     const val intellij = "2021.1.3" // don't update easily unless you want your disk space -= 500MB
 
 }

@@ -12,9 +12,9 @@
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.api.tasks.bundling.Jar
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.api.tasks.testing.Test
-import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.dsl.*
 import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
@@ -144,7 +144,10 @@ val experimentalAnnotations = arrayOf(
     "net.mamoe.mirai.message.data.ExperimentalMessageKey",
     "net.mamoe.mirai.console.ConsoleFrontEndImplementation",
     "net.mamoe.mirai.console.util.ConsoleInternalApi",
-    "net.mamoe.mirai.console.util.ConsoleExperimentalApi"
+    "net.mamoe.mirai.console.util.ConsoleExperimentalApi",
+
+    "kotlinx.io.core.internal.DangerousInternalIoApi",
+    // added since 1.5.30-M1, since opt-in rules had changed
 )
 
 fun Project.configureKotlinExperimentalUsages() {
@@ -159,11 +162,11 @@ fun KotlinSourceSet.configureKotlinExperimentalUsages() {
     languageSettings.progressiveMode = true
     languageSettings.enableLanguageFeature("InlineClasses")
     experimentalAnnotations.forEach { a ->
-        languageSettings.useExperimentalAnnotation(a)
+        languageSettings.optIn(a)
     }
     if (name.contains("test", ignoreCase = true)) {
         testExperimentalAnnotations.forEach { a ->
-            languageSettings.useExperimentalAnnotation(a)
+            languageSettings.optIn(a)
         }
     }
 }

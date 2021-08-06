@@ -9,6 +9,7 @@
 
 @file:JvmMultifileClass
 @file:JvmName("MiraiUtils")
+@file:OptIn(kotlinx.io.core.internal.DangerousInternalIoApi::class)
 
 @file:Suppress("NOTHING_TO_INLINE")
 

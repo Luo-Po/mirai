@@ -18,7 +18,7 @@ internal data class BotAccount(
     @JvmSynthetic
     internal val id: Long,
     @JvmSynthetic
-    @MiraiExperimentalApi
+    @property:MiraiExperimentalApi
     val passwordMd5: ByteArray, // md5
 
     val phoneNumber: String = ""

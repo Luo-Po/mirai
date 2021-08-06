@@ -14,6 +14,7 @@ package net.mamoe.mirai.internal.contact.announcement
 import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
 import io.ktor.http.*
+import io.ktor.util.*
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.SerialName
@@ -162,6 +163,7 @@ internal object AnnouncementProtocol {
         @SerialName("id") val id: String,
     ) : CheckableResponseA(), JsonStruct
 
+    @OptIn(InternalAPI::class) // ktor's problem
     suspend fun uploadGroupAnnouncementImage(
         bot: Bot,
         resource: ExternalResource

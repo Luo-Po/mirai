@@ -19,6 +19,9 @@ buildscript {
         // maven(url = "https://mirrors.huaweicloud.com/repository/maven")
         mavenCentral()
         google()
+        if (findProperty("use.maven.local").toString().toBoolean()) {
+            mavenLocal()
+        }
         jcenter()
     }
 
@@ -81,6 +84,10 @@ allprojects {
         jcenter()
         google()
         mavenCentral()
+
+        if (findProperty("use.maven.local").toString().toBoolean()) {
+            mavenLocal()
+        }
     }
 
     afterEvaluate {

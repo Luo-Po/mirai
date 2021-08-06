@@ -62,7 +62,7 @@ public data class OtherClientInfo @MiraiInternalApi constructor(
      *
      * 不可能有 [appId] 相同的两个客户端同时在线.
      */
-    @MiraiInternalApi
+    @property:MiraiInternalApi
     public val appId: Int,
 
     /**
@@ -93,8 +93,8 @@ public data class OtherClientInfo @MiraiInternalApi constructor(
  * @see OtherClientInfo.platform
  */
 public enum class Platform(
-    @MiraiInternalApi public val terminalId: Int,
-    @MiraiInternalApi public val platformId: Int,
+    @property:MiraiInternalApi public val terminalId: Int,
+    @property:MiraiInternalApi public val platformId: Int,
 ) {
     IOS(3, 1),
     MOBILE(2, 2), // android
@@ -111,7 +111,7 @@ public enum class Platform(
  * 详细设备类型. 在登录时查询到的设备列表中无此信息. 只在 [OtherClientOnlineEvent] 才有.
  */
 public enum class ClientKind(
-    @MiraiInternalApi public val id: Int,
+    @property:MiraiInternalApi public val id: Int,
 ) {
 
     ANDROID_PAD(68104),

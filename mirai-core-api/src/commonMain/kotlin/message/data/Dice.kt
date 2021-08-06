@@ -41,9 +41,7 @@ public data class Dice(
         require(value in 1..6) { "Dice.value must be in 1 and 6 inclusive." }
     }
 
-    @MiraiExperimentalApi
-    override val name: String
-        get() = "[骰子:$value]"
+    override val name: String get() = "[骰子:$value]"
 
     @MiraiExperimentalApi
     override val id: Int

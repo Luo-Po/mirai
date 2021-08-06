@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentLinkedQueue
  */
 @Suppress("unused")
 public class ContactList<C : Contact>
-@MiraiInternalApi public constructor(@JvmField @MiraiInternalApi public val delegate: ConcurrentLinkedQueue<C>) :
+@MiraiInternalApi public constructor(@JvmField @property:MiraiInternalApi public val delegate: ConcurrentLinkedQueue<C>) :
     Collection<C> by delegate {
     @MiraiInternalApi
     public constructor(collection: Collection<C>) : this(ConcurrentLinkedQueue(collection))

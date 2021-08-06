@@ -14,6 +14,7 @@ import io.ktor.client.engine.okhttp.*
 import io.ktor.client.features.*
 import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
+import io.ktor.util.*
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.io.core.discardExact
@@ -564,6 +565,7 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
         ignoreUnknownKeys = true
     }
 
+    @OptIn(InternalAPI::class) // ktor's problem
     @LowLevelApi
     @MiraiExperimentalApi
     override suspend fun getRawGroupActiveData(bot: Bot, groupId: Long, page: Int): GroupActiveData =
@@ -587,6 +589,7 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
             return json.decodeFromString(GroupActiveData.serializer(), rep)
         }
 
+    @OptIn(InternalAPI::class) // ktor's problem
     @LowLevelApi
     @MiraiExperimentalApi
     override suspend fun getRawGroupHonorListData(
@@ -687,7 +690,6 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
 
 
     @LowLevelApi
-    @MiraiExperimentalApi
     override suspend fun solveNewFriendRequestEvent(
         bot: Bot,
         eventId: Long,
@@ -713,7 +715,6 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
     }
 
     @LowLevelApi
-    @MiraiExperimentalApi
     override suspend fun solveBotInvitedJoinGroupRequestEvent(
         bot: Bot,
         eventId: Long,
@@ -734,7 +735,6 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
     }
 
     @LowLevelApi
-    @MiraiExperimentalApi
     override suspend fun solveMemberJoinRequestEvent(
         bot: Bot,
         eventId: Long,
@@ -774,6 +774,7 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
         }
     }
 
+    @OptIn(InternalAPI::class) // ktor's problem
     override suspend fun muteAnonymousMember(
         bot: Bot,
         anonymousId: String,
@@ -915,6 +916,7 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
         )
     }
 
+    @OptIn(InternalAPI::class) // ktor's problem
     private suspend fun downloadMultiMsgTransmit(
         bot: Bot,
         resourceId: String,

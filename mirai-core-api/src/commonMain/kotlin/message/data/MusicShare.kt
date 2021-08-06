@@ -15,7 +15,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.mamoe.mirai.message.code.CodableMessage
 import net.mamoe.mirai.message.code.internal.appendStringAsMiraiCode
-import net.mamoe.mirai.utils.MiraiExperimentalApi
 import net.mamoe.mirai.utils.MiraiInternalApi
 import net.mamoe.mirai.utils.safeCast
 
@@ -135,8 +134,7 @@ public data class MusicShare(
      * 注意, baseKey [MessageContent] 不稳定. 未来可能会有变更.
      */
     public companion object Key :
-        AbstractPolymorphicMessageKey<@MiraiExperimentalApi MessageContent, MusicShare>
-            (MessageContent, { it.safeCast() }) {
+        AbstractPolymorphicMessageKey<MessageContent, MusicShare>(MessageContent, { it.safeCast() }) {
 
         /**
          * @since 2.3
@@ -150,11 +148,11 @@ public data class MusicShare(
  * @since 2.1
  */
 public enum class MusicKind constructor(
-    @MiraiInternalApi public val appId: Long,
-    @MiraiInternalApi public val platform: Int,
-    @MiraiInternalApi public val sdkVersion: String,
-    @MiraiInternalApi public val packageName: String,
-    @MiraiInternalApi public val signature: String
+    @property:MiraiInternalApi public val appId: Long,
+    @property:MiraiInternalApi public val platform: Int,
+    @property:MiraiInternalApi public val sdkVersion: String,
+    @property:MiraiInternalApi public val packageName: String,
+    @property:MiraiInternalApi public val signature: String
 ) {
     NeteaseCloudMusic(
         100495085,

@@ -265,9 +265,9 @@ public open class SimpleLogger(
 ) : MiraiLoggerPlatformBase() {
 
     public enum class LogPriority(
-        @MiraiExperimentalApi public val nameAligned: String,
+        @property:MiraiExperimentalApi public val nameAligned: String,
         public val simpleName: String,
-        @MiraiExperimentalApi public val correspondingFunction: MiraiLogger.(message: String?, e: Throwable?) -> Unit
+        @property:MiraiExperimentalApi public val correspondingFunction: MiraiLogger.(message: String?, e: Throwable?) -> Unit
     ) {
         VERBOSE("VERBOSE", "V", MiraiLogger::verbose),
         DEBUG(" DEBUG ", "D", MiraiLogger::debug),

@@ -28,6 +28,7 @@ import net.mamoe.mirai.message.data.Image.Key.IMAGE_ID_REGEX
 import net.mamoe.mirai.utils.*
 import net.mamoe.mirai.utils.ExternalResource.Companion.DEFAULT_FORMAT_NAME
 
+@Suppress("SERIALIZER_TYPE_INCOMPATIBLE")
 @Serializable(with = OnlineGroupImageImpl.Serializer::class)
 internal class OnlineGroupImageImpl(
     internal val delegate: ImMsgBody.CustomFace,
@@ -57,6 +58,7 @@ internal class OnlineGroupImageImpl(
 
 }
 
+@Suppress("SERIALIZER_TYPE_INCOMPATIBLE")
 @Serializable(with = OnlineFriendImageImpl.Serializer::class)
 internal class OnlineFriendImageImpl(
     internal val delegate: ImMsgBody.NotOnlineImage,
@@ -234,6 +236,7 @@ internal interface OfflineImage : Image
 /**
  * @param imageId 参考 [Image.imageId]
  */
+@Suppress("SERIALIZER_TYPE_INCOMPATIBLE")
 @Serializable(with = OfflineGroupImage.Serializer::class)
 internal data class OfflineGroupImage(
     override val imageId: String,
@@ -275,6 +278,7 @@ internal val Image.friendImageId: String
  *
  * @param imageId 参考 [Image.imageId]
  */
+@Suppress("SERIALIZER_TYPE_INCOMPATIBLE")
 @Serializable(with = OfflineFriendImage.Serializer::class)
 internal data class OfflineFriendImage(
     override val imageId: String,

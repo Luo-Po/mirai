@@ -75,11 +75,11 @@ public abstract class PttMessage : MessageContent {
     level = DeprecationLevel.WARNING
 )
 public open class Voice @MiraiInternalApi constructor(
-    @MiraiExperimentalApi public override val fileName: String,
-    @MiraiExperimentalApi public override val md5: ByteArray,
-    @MiraiExperimentalApi public override val fileSize: Long,
+    @property:MiraiExperimentalApi public override val fileName: String,
+    @property:MiraiExperimentalApi public override val md5: ByteArray,
+    @property:MiraiExperimentalApi public override val fileSize: Long,
 
-    @SerialName("codec") @MiraiInternalApi public val _codec: Int = 0,
+    @SerialName("codec") @property:MiraiInternalApi public val _codec: Int = 0,
     private val _url: String
 ) : PttMessage() {
 

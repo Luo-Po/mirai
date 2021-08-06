@@ -74,8 +74,6 @@ internal object OnlinePushReqPush : IncomingPacketFactory<OnlinePushReqPush.ReqP
     }
 
 
-    @ExperimentalUnsignedTypes
-    @OptIn(ExperimentalStdlibApi::class)
     override suspend fun ByteReadPacket.decode(bot: QQAndroidBot, sequenceId: Int): ReqPushDecoded {
         val reqPushMsg = readUniPacket(OnlinePushPack.SvcReqPushMsg.serializer(), "req")
         //bot.network.logger.debug { reqPushMsg._miraiContentToString() }
