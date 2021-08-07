@@ -125,7 +125,7 @@ internal class Slf4jLoggerAdapter(private val logger: org.slf4j.Logger, private 
 
 internal class JdkLoggerAdapter(private val logger: java.util.logging.Logger) : MiraiLoggerPlatformBase() {
     override fun verbose0(message: String?, e: Throwable?) {
-        logger.log(java.util.logging.Level.FINER, message, e)
+        logger.log(java.util.logging.Level.FINEST, message, e)
     }
 
     override fun debug0(message: String?, e: Throwable?) {
