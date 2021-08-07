@@ -129,7 +129,7 @@ internal class JdkLoggerAdapter(private val logger: java.util.logging.Logger) : 
     }
 
     override fun debug0(message: String?, e: Throwable?) {
-        logger.log(java.util.logging.Level.FINEST, message, e)
+        logger.log(java.util.logging.Level.FINER, message, e)
 
     }
 
