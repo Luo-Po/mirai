@@ -12,7 +12,6 @@ package net.mamoe.mirai.internal
 import io.ktor.client.*
 import io.ktor.client.engine.okhttp.*
 import io.ktor.client.features.*
-import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import io.ktor.client.request.forms.*
 import kotlinx.coroutines.SupervisorJob
@@ -143,13 +142,6 @@ internal open class MiraiImpl : IMirai, LowLevelApiAccessor {
     override var FileCacheStrategy: FileCacheStrategy = net.mamoe.mirai.utils.FileCacheStrategy.PlatformDefault
 
     override var Http: HttpClient = HttpClient(OkHttp) {
-        install(Logging) {
-            logger = object : Logger {
-                override fun log(message: String) {
-                }
-            }
-            level = LogLevel.NONE
-        }
         install(HttpTimeout) {
             this.requestTimeoutMillis = 30_0000
             this.connectTimeoutMillis = 30_0000
