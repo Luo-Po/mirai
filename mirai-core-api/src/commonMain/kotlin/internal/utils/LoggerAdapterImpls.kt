@@ -56,28 +56,6 @@ internal class Log4jLoggerAdapter(
 
     override val identity: String? get() = logger.name
 
-    // unsafe
-
-    fun nativeVerbose(marker: Marker, message: String?, e: Throwable?) {
-        logger.trace(marker, message, e)
-    }
-
-    fun nativeDebug(marker: Marker, message: String?, e: Throwable?) {
-        logger.debug(marker, message, e)
-    }
-
-    fun nativeInfo(marker: Marker, message: String?, e: Throwable?) {
-        logger.info(marker, message, e)
-    }
-
-    fun nameWarning(marker: Marker, message: String?, e: Throwable?) {
-        logger.warn(marker, message, e)
-    }
-
-    fun nativeError(marker: Marker, message: String?, e: Throwable?) {
-        logger.error(marker, message, e)
-    }
-
     override fun subLogger(name: String): MarkedMiraiLogger {
         return Log4jLoggerAdapter(logger, Marker(name, marker))
     }
