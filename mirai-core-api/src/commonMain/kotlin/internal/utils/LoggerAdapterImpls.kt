@@ -12,6 +12,8 @@ package net.mamoe.mirai.internal.utils
 import net.mamoe.mirai.utils.MiraiLoggerPlatformBase
 import org.apache.logging.log4j.Marker
 import org.apache.logging.log4j.MarkerManager
+import java.util.logging.Level as JulLevel
+import java.util.logging.Logger as JulLogger
 
 internal class Log4jLoggerAdapter(
     private val logger: org.apache.logging.log4j.Logger,
@@ -101,33 +103,33 @@ internal class Slf4jLoggerAdapter(private val logger: org.slf4j.Logger, private 
         get() = logger.name
 }
 
-internal class JdkLoggerAdapter(private val logger: java.util.logging.Logger) : MiraiLoggerPlatformBase() {
+internal class JdkLoggerAdapter(private val logger: JulLogger) : MiraiLoggerPlatformBase() {
     override fun verbose0(message: String?, e: Throwable?) {
-        logger.log(java.util.logging.Level.FINEST, message, e)
+        logger.log(JulLevel.FINEST, message, e)
     }
 
     override fun debug0(message: String?, e: Throwable?) {
-        logger.log(java.util.logging.Level.FINER, message, e)
+        logger.log(JulLevel.FINER, message, e)
 
     }
 
     override fun info0(message: String?, e: Throwable?) {
-        logger.log(java.util.logging.Level.INFO, message, e)
+        logger.log(JulLevel.INFO, message, e)
     }
 
     override fun warning0(message: String?, e: Throwable?) {
-        logger.log(java.util.logging.Level.WARNING, message, e)
+        logger.log(JulLevel.WARNING, message, e)
     }
 
     override fun error0(message: String?, e: Throwable?) {
-        logger.log(java.util.logging.Level.SEVERE, message, e)
+        logger.log(JulLevel.SEVERE, message, e)
     }
 
-    override val isVerboseEnabled: Boolean get() = logger.isLoggable(java.util.logging.Level.FINE)
-    override val isDebugEnabled: Boolean get() = logger.isLoggable(java.util.logging.Level.FINEST)
-    override val isInfoEnabled: Boolean get() = logger.isLoggable(java.util.logging.Level.INFO)
-    override val isWarningEnabled: Boolean get() = logger.isLoggable(java.util.logging.Level.WARNING)
-    override val isErrorEnabled: Boolean get() = logger.isLoggable(java.util.logging.Level.SEVERE)
+    override val isVerboseEnabled: Boolean get() = logger.isLoggable(JulLevel.FINE)
+    override val isDebugEnabled: Boolean get() = logger.isLoggable(JulLevel.FINEST)
+    override val isInfoEnabled: Boolean get() = logger.isLoggable(JulLevel.INFO)
+    override val isWarningEnabled: Boolean get() = logger.isLoggable(JulLevel.WARNING)
+    override val isErrorEnabled: Boolean get() = logger.isLoggable(JulLevel.SEVERE)
 
     override val identity: String?
         get() = logger.name
