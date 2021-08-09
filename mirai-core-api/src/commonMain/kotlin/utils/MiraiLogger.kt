@@ -558,8 +558,7 @@ internal class DefaultFactory : MiraiLogger.Factory {
     }
 
     companion object {
-        lateinit var INSTANCE: DefaultFactory
-            private set
+        private var INSTANCE: DefaultFactory by lateinitMutableProperty { DefaultFactory() } // atomic and lazy
 
         fun override(lambda: (requester: Class<*>, identity: String?) -> MiraiLogger) {
             INSTANCE.override = lambda
