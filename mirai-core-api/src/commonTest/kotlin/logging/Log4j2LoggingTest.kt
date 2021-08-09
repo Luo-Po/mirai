@@ -10,10 +10,7 @@
 package net.mamoe.mirai.logging
 
 import net.mamoe.mirai.Bot
-import net.mamoe.mirai.internal.utils.Log4jLoggerAdapter
-import net.mamoe.mirai.internal.utils.MARKER_MIRAI
-import net.mamoe.mirai.internal.utils.Marker
-import net.mamoe.mirai.internal.utils.subLogger
+import net.mamoe.mirai.internal.utils.*
 import net.mamoe.mirai.utils.DefaultFactory
 import net.mamoe.mirai.utils.LoggerAdapters.asMiraiLogger
 import net.mamoe.mirai.utils.MiraiLogger
@@ -53,7 +50,7 @@ internal class Log4j2LoggingTest {
         val parentMarker = parent.cast().marker!!
 
         val child = parent.subLogger("sub")
-        val childMarker = child.marker!!
+        val childMarker = child.markerOrNull!!
 
         assertEquals("test1", parentMarker.name)
         assertEquals("sub", childMarker.name)
@@ -68,7 +65,7 @@ internal class Log4j2LoggingTest {
         val parentMarker = parent.cast().marker!!
 
         val child = parent.subLogger("sub").subLogger("sub2")
-        val childMarker = child.marker!!
+        val childMarker = child.markerOrNull!!
 
         assertEquals("test1", parentMarker.name)
         assertEquals("sub2", childMarker.name)
